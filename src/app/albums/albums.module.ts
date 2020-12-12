@@ -8,6 +8,7 @@ import { AlbumsComponent } from './pages/albums/albums.component';
 import { AlbumsRoutingModule } from './albums-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { AlbumsService } from './services/albums.service';
+import { PhotosComponent } from './components/photos/photos.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { AlbumsService } from './services/albums.service';
     EffectsModule.forFeature([AlbumsEffects]),
     StoreModule.forFeature(fromAlbums.albumsFeatureKey, fromAlbums.reducer),
   ],
-  declarations: [AlbumsComponent],
+  declarations: [AlbumsComponent, PhotosComponent],
 })
 export class AlbumsModule {}
