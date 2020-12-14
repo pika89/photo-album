@@ -6,8 +6,8 @@
     </div>
     <div class="form-group toggle-container">
       <div [ngSwitch]="toggleView">
-        <mat-icon  class="toggle-item" (click)="changeView()" *ngSwitchCase="true"  aria-hidden="false" aria-label="Example home icon">reorder</mat-icon>
-        <mat-icon  class="toggle-item" (click)="changeView()" *ngSwitchCase="false" aria-hidden="false" aria-label="Example home icon">view_column</mat-icon>
+        <mat-icon  class="toggle-item" (click)="changeView()" *ngSwitchCase="false"  aria-hidden="false" aria-label="Example home icon">reorder</mat-icon>
+        <mat-icon  class="toggle-item" (click)="changeView()" *ngSwitchCase="true" aria-hidden="false" aria-label="Example home icon">view_column</mat-icon>
       </div>
     </div>
     <cdk-virtual-scroll-viewport itemSize="74" class="viewport">
