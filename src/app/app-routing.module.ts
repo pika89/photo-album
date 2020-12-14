@@ -11,8 +11,8 @@ const routes: Routes = [
   {path: 'account', loadChildren: accountModule},
   {
     path: 'albums',
-    loadChildren: () => import('./albums/albums.module').then(m => m.AlbumsModule)
-
+    loadChildren: () => import('./albums/albums.module').then(m => m.AlbumsModule),
+    canActivate: [AuthGuard]
   },
 
   // otherwise redirect to home
