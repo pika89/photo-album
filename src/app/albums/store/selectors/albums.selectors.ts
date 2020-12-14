@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import * as fromAlbums from '../reducers/albums.reducer'
+import * as fromAlbums from '../reducers/albums.reducer';
 
 export const selectAlbumsState = createFeatureSelector<fromAlbums.AlbumsState>(fromAlbums.albumsFeatureKey);
 

@@ -1,0 +1,18 @@
+<div itemSize="50" class="container" *ngIf="albums$ | async as dataSource">
+  <div class="form-group">
+    <label for="search">Search albums: </label>
+    <input type="text" class="form-control" id="search" [(ngModel)]="filterTerm" placeholder="Type...">
+  </div>
+
+  <cdk-virtual-scroll-viewport itemSize="74" class="viewport">
+    <div class="row row-cols-xs-1 row-cols-sm-1 row-cols-md-1">
+      <div class="col item" *cdkVirtualFor="let album of dataSource | filter: filterTerm">
+        <div class="card shadow-sm">
+          <div class="card-body" (click)="details(album)">
+            <h5>{{album.title}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>

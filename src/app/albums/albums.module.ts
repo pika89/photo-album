@@ -9,7 +9,7 @@ import {AlbumsRoutingModule} from './albums-routing.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {AlbumsService} from './services/albums.service';
 import {PhotosComponent} from './components/photos/photos.component';
-import {ScrollingModule} from '@angular/cdk/scrolling'
+import {ScrollingModule} from '@angular/cdk/scrolling';
 import {FilterPipe} from '../shared/pipes/filter.pipe';
 import {FormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';

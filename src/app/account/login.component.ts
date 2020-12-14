@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
+import {Component, OnInit} from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {first} from 'rxjs/operators';
 
-import { AccountService } from '../services';
+import {AccountService} from '../services';
 
-@Component({ templateUrl: 'login.component.html' })
+@Component({templateUrl: 'login.component.html'})
 export class LoginComponent implements OnInit {
   form: FormGroup;
   loading = false;
@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private accountService: AccountService,
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -25,10 +26,12 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // convenience getter for easy access to form fields
-  get f() { return this.form.controls; }
+  // getter for easy access to form fields
+  get f() {
+    return this.form.controls;
+  }
 
-  onSubmit() {
+  onSubmit(): void {
     this.submitted = true;
 
     // stop here if form is invalid
@@ -41,7 +44,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe({
         next: () => {
-          // get return url from query parameters or default to home page
+          // default to home page
           this.router.navigateByUrl('/');
         },
         error: error => {
