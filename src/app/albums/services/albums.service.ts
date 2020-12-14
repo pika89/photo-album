@@ -17,5 +17,12 @@ export class AlbumsService {
     return this.http.get(this.url + 'albums', {});
   }
 
+  getAlbumPhotos(id) {
+    return this.http.get(this.url + `albums/${id}/photos`);
+  }
+
+  deletePhoto(id){
+    return this.http.delete(this.url + `photos/${id}`)
+  }
 
 }

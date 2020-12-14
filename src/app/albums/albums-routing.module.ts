@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PhotosComponent } from './components/photos/photos.component';
 import { AlbumsComponent } from './pages/albums/albums.component';
+import { AlbumResolver } from './resolver/resolver';
 
 const routes: Routes = [
   {
@@ -10,7 +11,10 @@ const routes: Routes = [
   },
   {
     path: ':id/photos',
-    component: PhotosComponent
+    component: PhotosComponent,
+    resolve: {
+      data: AlbumResolver
+    }
   },
   {
     path: '**',
@@ -22,5 +26,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
+  providers: [AlbumResolver]
 })
 export class AlbumsRoutingModule { }

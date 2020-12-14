@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {HomeComponent} from './home/home.component';
@@ -15,16 +15,20 @@ import {routerReducer} from '@ngrx/router-store';
 import {StoreRouterConnectingModule} from '@ngrx/router-store';
 import {CommonModule} from '@angular/common';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import { DialogComponent } from './shared/dialog/dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @NgModule({
   imports: [
     BrowserModule,
-    CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatButtonModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     // Instrumentation must be imported after importing StoreModule (config is optional)
-
     StoreModule.forRoot(
       {
         router: routerReducer
@@ -37,7 +41,9 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
   declarations: [
     AppComponent,
     HomeComponent,
+    DialogComponent,
   ],
+entryComponents: [DialogComponent],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},

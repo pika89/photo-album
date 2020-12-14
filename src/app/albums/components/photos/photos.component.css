@@ -1,0 +1,26 @@
+.viewport {
+  height: 995px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.item {
+  cursor: pointer;;
+}
+
+.toggle-item {
+  cursor: pointer;
+  font-size: 42px;
+}
+
+
+.toggle-item::selection {
+  background: none;
+}
+
+.photo{
+  position: relative;;
+}
+.row {
+  width: 100%;
+}

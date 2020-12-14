@@ -1,1 +1,32 @@
-<p>photos works!</p>
+<div class="photo py-5 bg-light" *ngIf="photos$ | async as photos">
+  <div class="container">
+    <div class="form-group">
+      <label for="search">Search photos: </label>
+      <input type="text" class="form-control" id="search" [(ngModel)]="filterTerm" placeholder="Type...">
+    </div>
+    <div class="form-group toggle-container">
+      <div [ngSwitch]="toggleView">
+        <mat-icon  class="toggle-item" (click)="changeView()" *ngSwitchCase="true"  aria-hidden="false" aria-label="Example home icon">reorder</mat-icon>
+        <mat-icon  class="toggle-item" (click)="changeView()" *ngSwitchCase="false" aria-hidden="false" aria-label="Example home icon">view_column</mat-icon>
+      </div>
+    </div>
+    <cdk-virtual-scroll-viewport itemSize="74" class="viewport">
+      <div class="row" [ngClass]="{'row': toggleView, 'column': !toggleView}">
+        <div class="col-md-4 item" *cdkVirtualFor="let photo of photos | filter: filterTerm" (click)="photoDialog(photo, photos)">
+          <div class="card mb-4 shadow-sm">
+            <img src="{{photo.thumbnailUrl}}" alt="">
+              <title>{{photo.title}}</title>
+            <div class="card-body">
+              <p class="card-text">{{photo.title}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" (click)="deletePhoto($event, photo.id)">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </div>
+</div>

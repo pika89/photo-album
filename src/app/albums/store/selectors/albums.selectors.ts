@@ -9,7 +9,9 @@ export const selectAlbums = () =>
     albumsState => albumsState.albums
   );
 
-// export const selectAlbum = createSelector(
-//   selectAlbumsState,
-//   albumState => albumState.currentAlbum
-// );
+export const selectAlbum = createSelector(
+  selectAlbumsState,
+  albumState => albumState.photos
+);
+
+
